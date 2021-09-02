@@ -12,7 +12,7 @@ public class main {
     public static void main(String[] args) throws InterruptedException {
 
 
-        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");//путь до драйвера
         WebDriver driver = new ChromeDriver();
         //окно разворачивается на полный экран
         driver.manage().window().maximize();
