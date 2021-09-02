@@ -19,24 +19,24 @@ public class main {
 
 
 
-        driver.get("https://vk.com/im?peers=176522155_c159_c165_35302391&sel=398426844");
-        //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        WebElement passwdField=driver.findElement(By.id("pass"));
-        WebElement loginField=driver.findElement(By.id("email"));
-        WebElement loginBtn=driver.findElement(By.id("login_button"));
-        passwdField.sendKeys("Pass Here");//пароль
-        loginField.sendKeys("login here");//логин
+        driver.get("https://vk.com");
+        WebDriverWait wait = new WebDriverWait(driver, 40);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("index_pass")));
+        WebElement passwdField=driver.findElement(By.id("index_pass"));
+        WebElement loginField=driver.findElement(By.id("index_email"));
+        WebElement loginBtn=driver.findElement(By.id("index_login_button"));
+        passwdField.sendKeys("pass");//пароль
+        loginField.sendKeys("login");//логин
         loginBtn.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, 40);
         wait.until(ExpectedConditions.elementToBeClickable(By.id("l_msg")));
         WebElement massenger = driver.findElement(By.id("l_msg"));
         massenger.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.id("im_dialogs_search")));
         WebElement search_line = driver.findElement(By.id("im_dialogs_search"));
-        search_line.sendKeys("Евгения");
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[data-list-id='317787977cr']")));
-        WebElement dialog = driver.findElement(By.cssSelector("li[data-list-id='317787977cr']"));
+        search_line.sendKeys("Имя");//название беседы или человека
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[data-list-id='числа id cr']")));//в коде вк найди id нужной беседы
+        WebElement dialog = driver.findElement(By.cssSelector("li[data-list-id='числа id cr']"));
         dialog.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[role='textbox']")));
         WebElement textbox = driver.findElement(By.cssSelector("div[role='textbox']"));
